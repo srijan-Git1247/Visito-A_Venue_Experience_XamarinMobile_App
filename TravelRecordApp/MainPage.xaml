@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TravelRecordApp.ViewModel"
+             x:Class="TravelRecordApp.MainPage">
+
+    <ContentPage.Resources>
+
+
+        <ResourceDictionary>
+
+            <vm:MainVM x:Key="vm"/>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <StackLayout BackgroundColor="White" BindingContext="{StaticResource vm}" VerticalOptions="Center" Margin="15">
+
+        <!-- Application Name -->
+        <Label Text="VISITO" 
+           FontSize="36" 
+           TextColor="{StaticResource Key=primaryColor}" 
+           HorizontalOptions="Center" 
+           FontAttributes="Bold" 
+           Margin="0,0,0,20" />
+
+        <Image x:Name="iconImage" Aspect="AspectFit" HorizontalOptions="FillAndExpand" Margin="0,0,0,50" HeightRequest="150"/>
+        <Entry x:Name="emailEntry" Text="{Binding Email}" Placeholder="Email" Keyboard="Email" TextColor="{StaticResource Key=blackColor}"/>
+        <Entry x:Name="passwordEntry" Text="{Binding Password}" Placeholder="Password" IsPassword="True" TextColor="{StaticResource Key=blackColor}"/>
+        <Button x:Name="loginButton" Text="Login"  Command="{Binding LoginCommand}" CommandParameter="{Binding EntriesHaveText}" Style="{StaticResource Key=normalButton}"/>
+    </StackLayout>
+
+</ContentPage>
